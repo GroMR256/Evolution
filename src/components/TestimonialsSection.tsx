@@ -10,20 +10,20 @@ interface TestimonialsSectionProps {
 
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testimonials }) => {
   return (
-    <section id="reviews" className="section-padding bg-[#0F0E0C] relative">
+    <section id="reviews" className="section-padding bg-[#0A0A08] relative border-t border-white/10">
       <div className="container">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#1C1A16] border border-[#D4AF37]/20 rounded-full px-4 py-1 text-xs text-[#E6C86E] uppercase tracking-widest font-semibold">
-            <Heart className="w-3.5 h-3.5 text-[#D4AF37]" />
-            Client Praise & Love
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#1C1A16] border border-[#E5BD52]/40 rounded-full px-4 py-1 text-xs text-[#F7EAB8] uppercase tracking-widest font-bold">
+            <Heart className="w-3.5 h-3.5 text-[#E5BD52]" />
+            Client Praise & Verified Reviews
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-light text-white">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
             What Our <span className="gold-gradient-text italic font-normal">Clients Say</span>
           </h2>
-          <p className="text-[#C8C2B6] font-light text-base md:text-lg">
-            Read authentic reviews from LA tastemakers, models, and long-time salon regulars.
+          <p className="text-[#E3DDD4] font-normal text-base md:text-lg">
+            Read authentic reviews from LA tastemakers, celebrities, and long-time salon regulars.
           </p>
         </div>
 
@@ -32,43 +32,43 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testim
           {testimonials.map((tst) => (
             <div
               key={tst.id}
-              className="glass-panel p-8 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all duration-300 flex flex-col justify-between space-y-6 group"
+              className="bg-[#1A1814] p-8 rounded-2xl border border-white/15 hover:border-[#E5BD52]/60 transition-all flex flex-col justify-between space-y-6 shadow-xl"
             >
               <div className="space-y-4">
                 
-                {/* Rating Stars & Quote Icon */}
+                {/* Rating & Quote Icon */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-[#D4AF37]">
+                  <div className="flex items-center gap-1 text-[#E5BD52]">
                     {[...Array(tst.rating || 5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#D4AF37]" />
+                      <Star key={i} className="w-4 h-4 fill-[#E5BD52]" />
                     ))}
                   </div>
-                  <Quote className="w-8 h-8 text-[#D4AF37]/20 group-hover:text-[#D4AF37]/40 transition-colors" />
+                  <Quote className="w-8 h-8 text-[#E5BD52]/30" />
                 </div>
 
                 {/* Service Tag */}
                 {tst.serviceReceived && (
-                  <span className="inline-block text-[11px] text-[#E6C86E] bg-[#24211C] px-3 py-1 rounded-full border border-[#D4AF37]/20">
+                  <span className="inline-block text-xs font-bold text-[#F7EAB8] bg-[#26231C] px-3.5 py-1.5 rounded-full border border-[#E5BD52]/30">
                     {tst.serviceReceived}
                   </span>
                 )}
 
                 {/* Quote Text */}
-                <p className="text-[#C8C2B6] font-light text-sm italic leading-relaxed">
+                <p className="text-[#E3DDD4] font-normal text-sm italic leading-relaxed">
                   "{tst.quote}"
                 </p>
               </div>
 
               {/* Client Info */}
-              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-4 pt-4 border-t border-white/15">
                 <img
                   src={tst.avatarUrl || 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200'}
                   alt={tst.clientName}
-                  className="w-12 h-12 rounded-full object-cover border border-[#D4AF37]"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#E5BD52]"
                 />
                 <div>
-                  <h4 className="text-white font-semibold text-sm">{tst.clientName}</h4>
-                  <p className="text-[#8C8578] text-xs">{tst.neighborhood}</p>
+                  <h4 className="text-white font-bold text-sm">{tst.clientName}</h4>
+                  <p className="text-[#A8A092] text-xs font-medium">{tst.neighborhood}</p>
                 </div>
               </div>
 

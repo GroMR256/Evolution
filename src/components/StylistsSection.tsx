@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { StylistItem } from '@/payload/collections/Stylists';
-import { Instagram, Sparkles, Calendar, Award } from 'lucide-react';
+import { Instagram, Calendar, Award } from 'lucide-react';
 
 interface StylistsSectionProps {
   stylists: StylistItem[];
@@ -11,20 +11,20 @@ interface StylistsSectionProps {
 
 export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists, onSelectStylistForBooking }) => {
   return (
-    <section id="stylists" className="section-padding bg-[#0F0E0C] relative">
+    <section id="stylists" className="section-padding bg-[#0A0A08] relative border-t border-white/10">
       <div className="container">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#1C1A16] border border-[#D4AF37]/20 rounded-full px-4 py-1 text-xs text-[#E6C86E] uppercase tracking-widest font-semibold">
-            <Award className="w-3.5 h-3.5 text-[#D4AF37]" />
-            Celebrity & Master Artists
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#1C1A16] border border-[#E5BD52]/40 rounded-full px-4 py-1 text-xs text-[#F7EAB8] uppercase tracking-widest font-bold">
+            <Award className="w-3.5 h-3.5 text-[#E5BD52]" />
+            Master Colorists & Stylists
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-light text-white">
-            Meet Our <span className="gold-gradient-text italic font-normal">Master Hair Stylists</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
+            Meet Our <span className="gold-gradient-text italic font-normal">Expert Team</span>
           </h2>
-          <p className="text-[#C8C2B6] font-light text-base md:text-lg">
-            Our team of internationally trained colorists, cut artisans, and extension specialists bring high-fashion expertise to every seat.
+          <p className="text-[#E3DDD4] font-normal text-base md:text-lg">
+            Our master stylists bring European technique and Beverly Hills artistry to every transformation.
           </p>
         </div>
 
@@ -33,25 +33,25 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists, onSe
           {stylists.map((stylist) => (
             <div
               key={stylist.id}
-              className="glass-panel-gold rounded-2xl overflow-hidden border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-300 group flex flex-col justify-between"
+              className="bg-[#1A1814] rounded-2xl overflow-hidden border border-white/15 hover:border-[#E5BD52]/60 transition-all flex flex-col justify-between shadow-xl"
             >
               <div>
-                {/* Photo Header */}
-                <div className="relative h-80 overflow-hidden">
+                {/* Stylist Image */}
+                <div className="relative h-72 overflow-hidden bg-[#0A0A08]">
                   <img
                     src={stylist.photo || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800'}
                     alt={stylist.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#171613] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1814] via-transparent to-transparent opacity-90" />
 
-                  {/* Instagram Badge */}
+                  {/* Instagram Button */}
                   {stylist.instagram && (
                     <a
                       href={`https://instagram.com/${stylist.instagram.replace('@', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 bg-[#0F0E0C]/80 hover:bg-[#D4AF37] hover:text-[#0F0E0C] text-[#E6C86E] p-2.5 rounded-full border border-white/10 transition-colors"
+                      className="absolute top-4 right-4 bg-[#0A0A08] hover:bg-[#E5BD52] hover:text-[#0A0A08] text-[#F7EAB8] p-2.5 rounded-full border border-white/20 transition-colors shadow-md"
                       title="Follow on Instagram"
                     >
                       <Instagram className="w-4 h-4" />
@@ -61,13 +61,13 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists, onSe
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <span className="text-xs text-[#D4AF37] font-semibold tracking-wider uppercase">
+                  <span className="text-xs text-[#E5BD52] font-bold uppercase tracking-wider">
                     {stylist.roleTitle}
                   </span>
-                  <h3 className="font-serif text-2xl text-white font-medium">
+                  <h3 className="font-serif text-2xl text-white font-bold">
                     {stylist.name}
                   </h3>
-                  <p className="text-[#C8C2B6] text-sm font-light leading-relaxed">
+                  <p className="text-[#E3DDD4] text-sm font-normal leading-relaxed">
                     {stylist.bio}
                   </p>
 
@@ -76,7 +76,7 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists, onSe
                     {stylist.specialties?.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="bg-[#24211C] text-[#E6C86E] text-[11px] px-3 py-1 rounded-full border border-[#D4AF37]/20"
+                        className="bg-[#26231C] text-[#F7EAB8] text-xs font-semibold px-3 py-1 rounded-full border border-[#E5BD52]/30"
                       >
                         {tag}
                       </span>
@@ -86,7 +86,7 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists, onSe
               </div>
 
               {/* Action Button */}
-              <div className="p-6 pt-0">
+              <div className="p-6 pt-0 mt-2">
                 <button
                   onClick={() => onSelectStylistForBooking(stylist.name)}
                   className="btn-gold w-full text-xs"
